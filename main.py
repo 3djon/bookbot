@@ -1,6 +1,6 @@
 def count_words(text):
-    words = text.split()
-    return len(words)
+    words = text.split() # adds all individual words into a list
+    return len(words) # counts the words in the list
 
 def main():
     with open("books/frankenstein.txt") as f:
