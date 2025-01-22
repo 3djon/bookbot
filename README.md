@@ -7,18 +7,19 @@ datetime and tabulate are imported to 'beautify' the printed output.
 Here is a sample of the output using Thomas Paine's Common Sense.
 
 
-```--- Begin report of books/common_sense.txt ---
+```
+--- Begin report of books/common_sense.txt ---
 
 25034 words found in the document
 
 
 Unique Word Counts:
 ------------------------------
-america      :    25
-britain      :    21
-government   :    39
-liberty      :     4
-tyranny      :     5
+america      :    47
+britain      :    41
+government   :    68
+liberty      :     9
+tyranny      :     7
 ------------------------------
 
 
@@ -87,4 +88,4 @@ Most common character: 'e' (14617 times)
 Least common character: 'æ' (4 times)
 
 --- End report ---
-Report generated on: 2025-01-22 09:59:34```
+Report generated on: 2025-01-22 11:23:05```
