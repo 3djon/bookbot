@@ -1,22 +1,23 @@
 from datetime import datetime
 from tabulate import tabulate
+import re
 
 def count_words(text):
     words = text.split() # adds all individual words into a list
     return len(words) # counts the words in the list
 
 def count_specific_words(text):
-    text = text.lower() # take string from .txt and make all lowercase
     words = text.split() # split string into individual words
     words_to_find = ["america", "government", "liberty", "britain", "tyranny"] # unique strings to look for
     word_counts = {"america": 0, "government": 0, "liberty": 0, "britain": 0, "tyranny": 0} # store count for unique strings
 
-    # loop through list and add matching words to key in dict
-    # only count words that have no punctuation assicated with them
+    # regex coming in hot finding what we want
+    words = re.findall(r'\b\w+\b', text.lower()) # finding edge casses and removing any capitalized letters
+
+    # Loop through words and count occurrences of words_to_find
     for word in words:
-        clean_word = word.strip(".,?!")
-        if clean_word in words_to_find:
-            word_counts[clean_word] += 1
+        if word in words_to_find:
+            word_counts[word] += 1
 
     return word_counts
 
