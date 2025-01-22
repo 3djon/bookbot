@@ -6,14 +6,17 @@ def count_words(text):
     return len(words) # counts the words in the list
 
 def count_specific_words(text):
-    text = text.lower()
-    words = text.split()
-    words_to_find = ["america", "government", "liberty", "britain", "tyranny"]
-    word_counts = {"america": 0, "government": 0, "liberty": 0, "britain": 0, "tyranny": 0}
+    text = text.lower() # take string from .txt and make all lowercase
+    words = text.split() # split string into individual words
+    words_to_find = ["america", "government", "liberty", "britain", "tyranny"] # unique strings to look for
+    word_counts = {"america": 0, "government": 0, "liberty": 0, "britain": 0, "tyranny": 0} # store count for unique strings
 
+    # loop through list and add matching words to key in dict
+    # only count words that have no punctuation assicated with them
     for word in words:
-        if word in words_to_find:
-            word_counts[word] += 1
+        clean_word = word.strip(".,?!")
+        if clean_word in words_to_find:
+            word_counts[clean_word] += 1
 
     return word_counts
 
