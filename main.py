@@ -1,6 +1,21 @@
+from datetime import datetime
+
 def count_words(text):
     words = text.split() # adds all individual words into a list
     return len(words) # counts the words in the list
+
+def count_specific_words(text):
+    text = text.lower()
+    words = text.split()
+    words_to_find = ["america", "government", "liberty", "britain", "tyranny"]
+    word_counts = {"america": 0, "government": 0, "liberty": 0, "britain": 0, "tyranny": 0}
+
+    for word in words:
+        if word in words_to_find:
+            word_counts[word] += 1
+
+    return word_counts
+
 
 def count_characters(text):
     string_count = {} # dictionary to store counted letters
@@ -15,8 +30,10 @@ def count_characters(text):
     return string_count
 
 def sort_report(text):
-    # Retrieve word counds from function
+    # Retrieve word counts from function
     word_count = count_words(text)
+    # Rertieve unique word count from function
+    specific_word_count = count_specific_words(text)
     # Retrieve character counts from function
     char_counts = count_characters(text)
 
@@ -36,10 +53,26 @@ def sort_report(text):
 
     # Creating the organized report
     print("--- Begin report of books/common_sense.txt ---")
+    print("")
     print(f"{word_count} words found in the document\n")
+    print("\nUnique Word Counts:")
+    print("-" * 30)
+    for word, count in sorted(specific_word_count.items()):
+        print(f"{word:<12} : {count:>5}")
+    print("-" * 30)
+    print("")
+    print("\nCharacter Counts:")
+    print("-" * 30)
     for char_dict in char_list:
         print(f"The '{char_dict['char']}' character was found {char_dict['count']} times")
+    print("-" * 30)
+    print("\nStats")
+    print("-" * 30)
+    print(f"Most common character: '{char_list[0]['char']}' ({char_list[0]['count']} times)")
+    print(f"Least common character: '{char_list[-1]['char']}' ({char_list[-1]['count']} times)")
+    print("")
     print("--- End report ---")
+    print(f"Report generated on: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")  
 
 
 def main():
