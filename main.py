@@ -35,7 +35,7 @@ def sort_report(text):
     char_list.sort(reverse=True, key=sort_on)
 
     # Creating the organized report
-    print("--- Begin report of books/frankenstein.txt ---")
+    print("--- Begin report of books/common_sense.txt ---")
     print(f"{word_count} words found in the document\n")
     for char_dict in char_list:
         print(f"The '{char_dict['char']}' character was found {char_dict['count']} times")
@@ -43,7 +43,7 @@ def sort_report(text):
 
 
 def main():
-    with open("books/frankenstein.txt") as f:
+    with open("books/common_sense.txt") as f:
         file_contents = f.read() # Reading the contents of text document
         sort_report(file_contents) # Generates a report of amount of words and unique character count of provided text
         
