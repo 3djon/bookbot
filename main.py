@@ -1,6 +1,12 @@
+# Beautify the output by importing tabulate
+# Reporting the date and time the program is excuted thanks to datetime
+# regex does the heavy lifting on finding unique words and removing punctuation (need to dive deeper into regex)
+# Requessts allows for feeding .txt files from the internet
+import requests
+import re
 from datetime import datetime
 from tabulate import tabulate
-import re
+
 
 def count_words(text):
     words = text.split() # adds all individual words into a list
@@ -93,9 +99,11 @@ def sort_report(text):
 
 
 def main():
-    with open("books/common_sense.txt") as f:
-        file_contents = f.read() # Reading the contents of text document
-        sort_report(file_contents) # Generates a report of amount of words and unique character count of provided text
+        # Fetch the full text of Common Sense from Project Gutenberg
+        url = "https://www.gutenberg.org/cache/epub/147/pg147.txt"
+        response = requests.get(url)
+        text = response.text
+        sort_report(text) # Generates a report of amount of words and unique character count of provided text
         
 if __name__ == "__main__":
     main()
