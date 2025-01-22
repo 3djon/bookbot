@@ -15,9 +15,9 @@ Here is a sample of the output using Thomas Paine's Common Sense.
 
 Unique Word Counts:
 ------------------------------
-america      :    47
-britain      :    41
-government   :    68
+america      :    50
+britain      :    51
+government   :    70
 liberty      :     9
 tyranny      :     7
 ------------------------------
@@ -88,4 +88,5 @@ Most common character: 'e' (14617 times)
 Least common character: 'æ' (4 times)
 
 --- End report ---
-Report generated on: 2025-01-22 11:23:05```
+Report generated on: 2025-01-22 11:41:42
+```
