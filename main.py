@@ -78,7 +78,7 @@ def sort_report(text):
         return tabulate(rows, headers=headers, tablefmt='grid')
 
     # Creating the organized report
-    print("--- Begin report of books/common_sense.txt ---")
+    print("--- Begin report of Common Sense by Thomos Paine ---")
     print("")
     print(f"{word_count} words found in the document\n")
     print("\nUnique Word Counts:")

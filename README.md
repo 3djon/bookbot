@@ -8,7 +8,7 @@ Here is a sample of the output using Thomas Paine's Common Sense.
 
 
 ```
---- Begin report of books/common_sense.txt ---
+--- Begin report of Common Sense by Thomos Paine ---
 
 25034 words found in the document
 
