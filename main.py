@@ -1,4 +1,5 @@
 from datetime import datetime
+from tabulate import tabulate
 
 def count_words(text):
     words = text.split() # adds all individual words into a list
@@ -51,6 +52,21 @@ def sort_report(text):
 
     char_list.sort(reverse=True, key=sort_on)
 
+    def create_table():
+        # Calc total characters
+        total_chars = sum(char_dict['count'] for char_dict in char_list)
+
+        # Rows with percentages
+        rows = []
+        for char_dict in char_list:
+            char = char_dict['char']
+            count = char_dict['count']
+            percentage = (count / total_chars) * 100
+            rows.append([char, count, f"{percentage:.2f}%"])
+
+        headers = ['Character', 'Occurrences', 'Percentage']
+        return tabulate(rows, headers=headers, tablefmt='grid')
+
     # Creating the organized report
     print("--- Begin report of books/common_sense.txt ---")
     print("")
@@ -62,10 +78,7 @@ def sort_report(text):
     print("-" * 30)
     print("")
     print("\nCharacter Counts:")
-    print("-" * 30)
-    for char_dict in char_list:
-        print(f"The '{char_dict['char']}' character was found {char_dict['count']} times")
-    print("-" * 30)
+    print(create_table())
     print("\nStats")
     print("-" * 30)
     print(f"Most common character: '{char_list[0]['char']}' ({char_list[0]['count']} times)")
